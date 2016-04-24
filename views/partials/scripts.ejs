@@ -1,0 +1,22 @@
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- jQuery fallback -->
+    <script>
+        if (!window.jQuery) { document.write('<script src="/assets/js/jquery.js"><\/script>'); }
+    </script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/blueimp-gallery.min.js"></script>
+    
+    <script>
+    document.getElementById('links').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = {index: link, event: event},
+            links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+    </script>

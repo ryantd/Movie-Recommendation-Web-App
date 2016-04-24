@@ -1,0 +1,61 @@
+header.black {
+    background-color: black;
+}
+
+.text-gray {
+    color: gray;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-3d {
+  margin: 0;
+  font: bold 50px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #fff;
+  text-shadow: 0 1px 0 #cccccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbbbbb, 0 4px 0 #b9b9b9, 0 2px 0 #aaaaaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+  -webkit-transition: .2s all linear;
+}
+
+.header-nav {
+	margin-top: 30px;
+}
+
+.header-title {
+	margin-top: 15px;
+}
+
+.header-subtitle {
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+.vertical-divider{
+    position:absolute;
+    left:50%;
+    top:10%;
+    bottom:10%;
+    border-left:1px solid black;
+}
+
+.links {
+    margin: 0 auto;
+    max-width: 750px;
+}
+
+.crop{
+  width: 75px;
+  height: 75px;
+  overflow: hidden;
+  float:left;
+}
+
+.crop > img{
+  width: 75px;
+
+}
+
+.gallery {
+    padding-top: 100px;
+}

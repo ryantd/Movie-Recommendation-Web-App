@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <% include ../partials/header %>
+    <div class="container">
+        <main class="row">
+            <section>
+                <h2>Profile</h2>
+                <hr />
+                <form action="/profile" method="POST" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="firstname">First Name</label>
+                        <div class="col-sm-7">
+                            <% if (data.firstName) { %>
+                            <input type="text" name="firstname" class="form-control" id="firstname" value="<%= data.firstName %>" />
+                            <% } else { %>
+                            <input type="text" name="firstname" class="form-control" id="firstname"/>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="lastname">Last Name</label>
+                        <div class="col-sm-7">
+                            <% if (data.lastName) { %>
+                            <input type="text" name="lastname" class="form-control" id="lastname" value="<%= data.lastName %>" />
+                            <% } else { %>
+                            <input type="text" name="lastname" class="form-control" id="lastname"/>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="hobby">Hobby</label>
+                        <div class="col-sm-7">
+                            <% if (data.hobby) { %>
+                            <input type="text" name="hobby" class="form-control" id="hobby" value="<%= data.hobby %>" />
+                            <% } else { %>
+                            <input type="text" name="hobby" class="form-control" id="hobby"/>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="petname">Pet Name</label>
+                        <div class="col-sm-7">
+                            <% if (data.petName) { %>
+                            <input type="text" name="petname" class="form-control" id="petname" value="<%= data.petName %>" />
+                            <% } else { %>
+                            <input type="text" name="petname" class="form-control" id="petname"/>
+                            <% } %>
+                        </div>
+                    </div>
+                    <% if (successInfo) { %>
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <%= successInfo %>
+                        </div>
+                    <% } %>
+                    <% if (updateError) { %>
+                        <div class="alert alert-danger" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <%= updateError %>
+                        </div>
+                    <% } %>
+                    <button type="submit" class="btn btn-default col-sm-offset-3" style="margin-top: 10px">Update My Profile
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    </button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <% include ../partials/scripts %>
+</body>
+
+</html>

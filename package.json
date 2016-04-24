@@ -1,0 +1,29 @@
+{
+  "name": "cs-546-group4-final",
+  "version": "1.0.0",
+  "description": "This is a final project from Stevens CS546, to make a movie recommendation web app.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryani33/Movie-Recommendation-Web-App.git"
+  },
+  "author": "CS546 Group4",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryani33/Movie-Recommendation-Web-App/issues"
+  },
+  "homepage": "https://github.com/ryani33/Movie-Recommendation-Web-App#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.1",
+    "bcrypt-nodejs": "^0.0.3",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "guid": "0.0.12",
+    "mongodb": "^2.1.7",
+    "request-promise": "^2.0.0"
+  }
+}
