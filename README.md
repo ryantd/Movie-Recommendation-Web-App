@@ -1,68 +1,39 @@
 # Movie Recommendation Web App
 
 ##layer
-
+`
 ├─┬ index
-
 │ ├── [public] header (login/signup/logout, user profile, search bar)
-
 │ ├── [public] popular movies based on rating(rottentomatoes)
-
 │ ├── [private] advanced recommendation movies
-
 │ └── [public] footer
-
 │
-
 ├─┬ movie profile
-
 │ ├── [public] header (login/signup/logout, user profile, search bar)
-
 │ ├── [public] movie details (title ...)
-
 │ ├── [public] recommendation movies based on tags(may be randomly)
-
 │ └── [public] footer
-
 │
-
 ├─┬ log in
-
 │ ├── [public] login form
-
 │ ├── [public] link to signup
-
 │ └── [public] footer
-
 │
-
 ├─┬ sign up
-
 │ ├── [public] signup form
-
 │ ├── [public] link to login
-
 │ └── [public] footer
-
 │
-
 └─┬ user profile
-
   ├─┬ login
-
   │ ├── [private] header (login/signup/logout, user profile, search bar)
-
   │ ├── [private] all info (name, age ...)
-
   │ ├── [private] like movies
-
   │ ├── [private] advanced recommendation movies
-
   │ └── [private] footer
-
   └─┬ not login
-
     └── [public] redirect to login page
+`
 
 ##git
 
