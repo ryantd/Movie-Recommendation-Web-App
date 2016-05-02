@@ -1,7 +1,7 @@
 # Movie Recommendation Web App
 
 ##layer
-`
+```
 ├─┬ index
 │ ├── [public] header (login/signup/logout, user profile, search bar)
 │ ├── [public] popular movies based on rating(rottentomatoes)
@@ -33,7 +33,7 @@
   │ └── [private] footer
   └─┬ not login
     └── [public] redirect to login page
-`
+```
 
 ##git
 
