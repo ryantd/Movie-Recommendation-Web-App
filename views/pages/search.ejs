@@ -20,7 +20,9 @@
                     <li>Genre: <%= movieObject.genre %></li><br>
                     <li>director: <%= movieObject.director %></li><br>
                     <li>Actors: <%= movieObject.actors %></li><br>
-                    <img src="<%= movieObject.json.Poster %>"  alt="<%= movieObject.title %>" />
+                    <a href="/movie/<%= movieObject.imdbId %>">
+                        <img src="<%= movieObject.json.Poster %>"  alt="<%= movieObject.title %>" />
+                    </a>
                 
                     <% }); %>
                 </ul>  

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <% include ../partials/header %>
+    <div class="container">
+        <main class="row">
+            <section class="col-sm-6">
+                <h2>Search Results</h2>
+                <br>
+                <ul>
+                    
+                    <li>Title: <%= movieList.title %></li><br>
+                    <li>Year: <%= movieList.year %></li><br>
+                    <li>Rating: <%= movieList.json.imdbRating %></li><br>
+                    <li>Genre: <%= movieList.genre %></li><br>
+                    <li>director: <%= movieList.director %></li><br>
+                    <li>Actors: <%= movieList.actors %></li><br>
+                    <img src="<%= movieList.json.Poster %>"  alt="<%= movieList.title %>" />
+                
+                    
+                </ul>  
+            </section>
+
+        </main>
+    </div>
+    
+    <% include ../partials/gallery %>
+    
+    <div id="blueimp-gallery" class="blueimp-gallery">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+    </div>
+    
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+           <% include ../partials/comment %>  
+		</div>
+	</div>
+</div>
+   
+    <% include ../partials/scripts %>
+</body>
+
+</html>
