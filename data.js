@@ -4,7 +4,8 @@ var MongoClient = require('mongodb').MongoClient,
     bcrypt = require('bcrypt-nodejs'),
     request = require('request'),
     fs = require('fs'),
-    rp = require('request-promise');
+    rp = require('request-promise'),
+    omdb = require('omdb');;
 
 var fullMongoUrl = settings.mongoConfig.serverUrl + settings.mongoConfig.database;
 var exports = module.exports = {};
@@ -15,7 +16,7 @@ MongoClient.connect(fullMongoUrl)
         db.createCollection("movies");
         var userCollection = db.collection("users");
         var movieCollection = db.collection("movies");
-
+        
         /* user system related funcs */
         exports.createUser = function(uname, pwd, cpwd, sid) {
             if (!uname) return Promise.reject("You must provide a username");
@@ -138,7 +139,7 @@ MongoClient.connect(fullMongoUrl)
                     var re = /(?:\.([^.]+))?$/;
                     var ext = re.exec(imgurl);
                     imgCurrentName = imdb + "." + ext[1];
-                    var poster = request(imgurl).pipe(fs.createWriteStream('static/resources/poster/' + imgCurrentName));
+                    //var poster = request(imgurl).pipe(fs.createWriteStream('static/resources/poster/' + imgCurrentName));
                     //poster.on('finish', function () { ; });
                     return movieCollection.find({ imdbId: imdb }).limit(1).toArray().then(function(listOfMovies) {
                         if (listOfMovies.length != 0) {
@@ -156,6 +157,7 @@ MongoClient.connect(fullMongoUrl)
                                                        likedby: "",
                                                           json: fullObj
                         }).then(function(newDoc) {
+                            console.log("successfully inserted");
                             return exports.getMovieById(newDoc.insertedId);
                         });
                     });
@@ -219,4 +221,71 @@ MongoClient.connect(fullMongoUrl)
         exports.getAllMovies = function() {
             return movieCollection.find().toArray();
         }
+        
+        exports.getMovieByKeyWord = function (keyWord) {
+            if (!keyWord) return Promise.reject("You must provide a key word!");
+            
+            return movieCollection.find({ $or:[ {title: {$regex: keyWord.toString(),$options: "$i" }},
+                                                 {actors:{ $regex: keyWord.toString(), $options: "$i"}},
+                                                  {directors: {$regex: keyWord.toString(), $options: "$i"}}]}).toArray().then(function(listOfMovies) {
+                                                      if (listOfMovies.length === 0) {
+                                                          //console.log("hehe");
+                                                          omdb.search(keyWord.toString(), function (err, movies) {
+                                                                if(err) {
+                                                                    throw "error";
+                                                                }
+                                                                if(movies.length < 1) {
+                                                                    throw "No movies were found!";
+                                                                }
+                                                                for (var movie in movies) {
+                                                                    
+                                                                    console.log(movies[movie]);
+                                                                    exports.createMovieByImdb(movies[movie].imdb);
+                                                                }
+                                                                                                                                       
+                                                          }).then(function () {
+                                                              exports.getMovieByKeyWord(keyWord);
+                                                          })
+                                                      } else {
+                                                          return listOfMovies.sort(compare);
+                                                      }
+                                                      
+                                                  });
+            
+        }
+        
+        // sort by imdbRating
+        function compare(a,b) {
+            if (a.json.imdbRating === 'N/A') {
+                return 1;
+            } 
+            else if (b.json.imdbRating === 'N/A'){
+                return -1;
+            } 
+            else if (a.json.imdbRating > b.json.imdbRating) {
+                console.log(a.json.imdbRating);
+                console.log(b.json.imdbRating);
+                return -1;
+            }
+            else if (a.json.imdbRating < b.json.imdbRating) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        }
+        
+        // get movie by genre, also for simple recommendation.
+        exports.getMovieByGenre = function(genre) {
+            if (!genre) return Promise.reject("You must probide a genre!");
+            
+            return movieCollection.find({genre: {$regex: genre.toString(),$options: "$i" }}).toArray().then(function(listOfMovies) {
+                if (listOfMovies.length === 0) {
+                    throw "Could not find movie with genre of " + genre;
+                }
+                return listOfMovies.sort(compare);
+            })
+        }
+        
+        
     });

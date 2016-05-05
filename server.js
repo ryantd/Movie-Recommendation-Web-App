@@ -128,6 +128,21 @@ app.get("/logout", function(request, response) {
     }
 });
 
+app.get("/movie", function (request, response) {
+    
+    data.getMovieByKeyWord("hateful").then(function(movieList) {     
+        //console.log(movieList);
+        response.render('pages/search', {movieList: movieList})
+    });
+})
+
+app.get("/select", function (request, response) {
+    
+    data.getMovieByGenre("drama").then(function(movieList) {     
+        //console.log(movieList);
+        response.render('pages/select', {movieList: movieList})
+    });
+})
 // We can now navigate to localhost:3000
 app.listen(3000, function() {
     console.log('Your server is now listening on port 3000! Navigate to http://localhost:3000 to access it');
