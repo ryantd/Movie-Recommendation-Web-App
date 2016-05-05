@@ -5,6 +5,7 @@ var data = require('./data.js');
 var cookieParser = require('cookie-parser');
 var Guid = require('Guid');
 var fs = require('fs');
+var xss= require("xss");
 
 // This package exports the function to create an express instance:
 var app = express();
@@ -49,13 +50,19 @@ app.get("/", function(request, response) {
 });
 
 app.post("/profile", function(request, response) {
-    var fname = request.body.firstname;
-    var lname = request.body.lastname;
-    var hobby = request.body.hobby;
-    var pname = request.body.petname;
+    options={
+        whiteList: [],
+        stripIgnoreTag: true,
+        stripIgnoreTagBody: ['script']
+    };
+    myxss= new xss.FilterXSS(options);
+
+    var fname = myxss.process(request.body.firstname);
+    var lname = myxss.process(request.body.lastname);
+    var email = myxss.process(request.body.email);
     var currentSid = request.cookies.sessionId;
 
-    data.updateProfile(currentSid, fname, lname, hobby, pname).then(function(user) {
+    data.updateProfile(currentSid, fname, lname, email).then(function(user) {
         response.render('pages/profile', { data: user.profile, sid: user.currentSessionId, successInfo: "Updated Successfully", updateError: null });
     }, function(errorMessage) {
         response.status(500).render('pages/profile', { data: user.profile, sid: user.currentSessionId, successInfo: null, updateError: errorMessage });
@@ -78,8 +85,15 @@ app.get("/profile", function(request, response) {
 });
 
 app.post("/login", function(request, response) {
-    var uname = request.body.loginname;
-    var pwd = request.body.loginpwd;
+     options={
+        whiteList: [],
+        stripIgnoreTag: true,
+        stripIgnoreTagBody: ['script']
+    };
+    myxss= new xss.FilterXSS(options);
+
+    var uname = myxss.process(request.body.loginname);
+    var pwd = myxss.process(request.body.loginpwd);
     var sid = Guid.create().toString();
 
     var expiresAt = new Date();
@@ -98,9 +112,16 @@ app.get("/login", function(request, response) {
 });
 
 app.post("/signup", function(request, response) {
-    var uname = request.body.signupname;
-    var pwd = request.body.signuppwd;
-    var cpwd = request.body.confirmpwd;
+    options={
+        whiteList: [],
+        stripIgnoreTag: true,
+        stripIgnoreTagBody: ['script']
+    };
+    myxss= new xss.FilterXSS(options);
+
+    var uname = myxss.process(request.body.signupname);
+    var pwd = myxss.process(request.body.signuppwd);
+    var cpwd = myxss.process(request.body.confirmpwd);
     var sid = Guid.create().toString();
 
     var expiresAt = new Date();

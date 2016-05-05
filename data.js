@@ -65,9 +65,10 @@ MongoClient.connect(fullMongoUrl)
             });
         };
 
-        exports.updateProfile = function(sid, fname, byear) {
-            return userCollection.update({ currentSessionId: sid }, { $set: { profile: {       name: fname,
-                                                                                          birthYear: byear
+        exports.updateProfile = function(sid, fname, lname,email) {
+            return userCollection.update({ currentSessionId: sid }, { $set: { profile: {       fname: fname,
+                                                                                          lname: lname,
+                                                                                          email:email
                                                                                        }
                                                                             } }).then(function() {
                 return exports.getUserBySessionId(sid);
