@@ -5,13 +5,17 @@
 ├─┬ index
 │ ├── [public] header (login/signup/logout, user profile, search bar)
 │ ├── [public] popular movies based on rating(rottentomatoes)
-│ ├── [private] advanced recommendation movies
 │ └── [public] footer
 │
 ├─┬ movie profile
 │ ├── [public] header (login/signup/logout, user profile, search bar)
 │ ├── [public] movie details (title ...)
 │ ├── [public] recommendation movies based on tags(may be randomly)
+│ └── [public] footer
+│
+├─┬ movie search result
+│ ├── [public] header (login/signup/logout, user profile, search bar)
+│ ├── [public] movie list
 │ └── [public] footer
 │
 ├─┬ log in
