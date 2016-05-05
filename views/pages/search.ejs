@@ -23,7 +23,7 @@
                     <a href="/movie/<%= movieObject.imdbId %>">
                         <img src="<%= movieObject.json.Poster %>"  alt="<%= movieObject.title %>" />
                     </a>
-                
+                    
                     <% }); %>
                 </ul>  
             </section>
@@ -43,14 +43,7 @@
         <ol class="indicator"></ol>
     </div>
     
-    <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-           <% include ../partials/comment %>  
-		</div>
-	</div>
-</div>
-   
+    
     <% include ../partials/scripts %>
 </body>
 
