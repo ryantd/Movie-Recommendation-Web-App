@@ -233,7 +233,7 @@ MongoClient.connect(fullMongoUrl)
                                                  {actors:{ $regex: keyWord.toString(), $options: "$i"}},
                                                   {directors: {$regex: keyWord.toString(), $options: "$i"}}]}).toArray().then(function(listOfMovies) {
                                                       if (listOfMovies.length === 0) {
-                                                          //console.log("hehe");
+                                                          //console.log("lol");
                                                           omdb.search(keyWord.toString(), function (err, movies) {
                                                                 if(err) {
                                                                     throw "error";
