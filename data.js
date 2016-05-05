@@ -222,6 +222,9 @@ MongoClient.connect(fullMongoUrl)
             return movieCollection.find().toArray();
         }
         
+        // =================
+        // Search
+        // =================
         exports.getMovieByKeyWord = function (keyWord) {
             if (!keyWord) return Promise.reject("You must provide a key word!");
             
@@ -275,6 +278,9 @@ MongoClient.connect(fullMongoUrl)
             }
         }
         
+        // =================
+        // Filter and Recommendation
+        // =================
         // get movie by genre, also for simple recommendation.
         exports.getMovieByGenre = function(genre) {
             if (!genre) return Promise.reject("You must probide a genre!");
