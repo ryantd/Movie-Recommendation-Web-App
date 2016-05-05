@@ -178,7 +178,12 @@ app.get("/movie/:id", function (request, response) {
     //console.log(request.params.genre);
     data.getMovieByImdb(request.params.id).then(function(movieList) {     
         //console.log(movieList);
-        response.render('pages/movie', {movieList: movieList})
+        var majorGenre = (movieList.genre).split(", ")[0];
+        //console.log(majorGenre);
+        data.getMovieByGenre(majorGenre).then(function(recMovies) {
+            //console.log(recMovies);
+            response.render('pages/movie', {movieList: movieList,recMovies: recMovies})
+        })
     });
 })
 // We can now navigate to localhost:3000
