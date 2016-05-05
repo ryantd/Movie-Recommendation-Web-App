@@ -13,21 +13,21 @@
                 <h2>Search Results</h2>
                 <br>
                 <ul>
+                    <% movieList.forEach(function(movieObject){ %>
+                    <li>Title: <%= movieObject.title %></li><br>
+                    <li>Year: <%= movieObject.year %></li><br>
+                    <li>Rating: <%= movieObject.json.imdbRating %></li><br>
+                    <li>Genre: <%= movieObject.genre %></li><br>
+                    <li>director: <%= movieObject.director %></li><br>
+                    <li>Actors: <%= movieObject.actors %></li><br>
+                    <a href="/movie/<%= movieObject.imdbId %>">
+                        <img src="<%= movieObject.json.Poster %>"  alt="<%= movieObject.title %>" />
+                    </a>
                     
-                    <li>Title: <%= movieList.title %></li><br>
-                    <li>Year: <%= movieList.year %></li><br>
-                    <li>Rating: <%= movieList.json.imdbRating %></li><br>
-                    <li>Genre: <%= movieList.genre %></li><br>
-                    <li>director: <%= movieList.director %></li><br>
-                    <li>Actors: <%= movieList.actors %></li><br>
-                    <img src="<%= movieList.json.Poster %>"  alt="<%= movieList.title %>" />
-                
-                    
+                    <% }); %>
                 </ul>  
             </section>
-            <section class="col-sm-12">
-                <% include ../partials/comment %>
-            </section>
+
         </main>
     </div>
     
@@ -44,7 +44,6 @@
     </div>
     
     
-   
     <% include ../partials/scripts %>
 </body>
 

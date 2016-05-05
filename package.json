@@ -17,13 +17,14 @@
   },
   "homepage": "https://github.com/ryani33/Movie-Recommendation-Web-App#readme",
   "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.14.2",
     "cookie-parser": "^1.4.1",
-    "bcrypt-nodejs": "^0.0.3",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "guid": "0.0.12",
     "mongodb": "^2.1.7",
+    "omdb": "^0.5.0",
     "request-promise": "^2.0.0"
   }
 }
