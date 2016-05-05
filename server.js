@@ -128,7 +128,8 @@ app.get("/logout", function(request, response) {
     }
 });
 
-app.get("/movie", function (request, response) {
+
+app.get("/search", function (request, response) {
     
     data.getMovieByKeyWord("hateful").then(function(movieList) {     
         //console.log(movieList);

@@ -266,8 +266,6 @@ MongoClient.connect(fullMongoUrl)
                 return -1;
             } 
             else if (a.json.imdbRating > b.json.imdbRating) {
-                console.log(a.json.imdbRating);
-                console.log(b.json.imdbRating);
                 return -1;
             }
             else if (a.json.imdbRating < b.json.imdbRating) {
