@@ -8,55 +8,112 @@
 <body>
     <% include ../partials/header %>
     <div class="container">
-        <main class="row">
-            <section class="col-sm-6">
-                <h2>Movie</h2>
-                <br>
-                <ul>
-                    
-                    <li>Title: <%= movieList.title %></li><br>
-                    <li>Year: <%= movieList.year %></li><br>
-                    <li>Rating: <%= movieList.json.imdbRating %></li><br>
-                    <li>Genre: <%= movieList.genre %></li><br>
-                    <li>director: <%= movieList.director %></li><br>
-                    <li>Actors: <%= movieList.actors %></li><br>
+        <div class="container-fluid">
+            <h2>
+                <%= movieList.title %>(<%= movieList.year %>)
+            </h2>
+            <div class="row">
+                <div class="col-md-4">
                     <img src="<%= movieList.json.Poster %>"  alt="<%= movieList.title %>" />
-                
+                </div>
+          
+                <div class="col-md-4">
+                    <dl>
+                        <dt>
+                        <span ><span class='movie-text'>Director：</span>
+                        </dt>
+                        <dd>
+                        <span ><span class='movie-text-content'><%= movieList.director %></span>
+                        </dd>
+                        <dt>
+                        <span ><span class='movie-text'>Actor：</span>
+                        </dt>
+                        <dd>
+                        <span ><span class='movie-text-content'><%= movieList.actors %></span>
+                        </dd>
+                        <dt>
+                        <span ><span class='movie-text'>Release Year：</span>
+                        </dt>
+                        <dt>
+                        <span ><span class='movie-text-content-alt'><%= movieList.year %></span>
+                        </dt>
+                        <dt>
+                        <span ><span class='movie-text'>Genre：</span>
+                        </dt>
+                        <dt>
+                        <span ><span class='movie-text-content-alt'><%= movieList.genre %></span>
+                        </dt>
+                    </dl>
                     
-                </ul>  
-            </section>
-            <section class="col-sm-6">
+                </div>
                 
-                <br>
-                <ul>
-                    <% recMovies.forEach(function(movieObject){ %>
-                    <a href="/movie/<%= movieObject.imdbId %>">
+                <div class="col-md-4">
+                    <h3>
+                    Rating:
+                    </h3>
+                    <h4 style="text-align: center;">
+                    <span ><span class='strong-red-text'><%= movieList.json.imdbRating %></span>
+                    </h4>
+                    
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-success btn-lg">
+                      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
+                    </button>
+                    <h2>
+                    Synopsis
+                    </h2>
+                    <p>
+                    <%= movieList.json.Plot %>
+                    </p>
+                    <p>
+                    <a class="btn" href="#">View details »</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>The People Who Like This Movie Also Like: </h2>
+                    <% include ../partials/gallery %> 
+                    <div id="blueimp-gallery" class="blueimp-gallery">
+                        <div class="slides"></div>
+                        <h3 class="title"></h3>
+                        <a class="prev">‹</a>
+                        <a class="next">›</a>
+                        <a class="close">×</a>
+                        <a class="play-pause"></a>
+                        <ol class="indicator"></ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>The Recommend Movies: </h2>
+                    <ul>
+                        <% recMovies.forEach(function(movieObject){ %>
+                        <a href="/movie/<%= movieObject.imdbId %>">
                         <li>Title: <%= movieObject.title %></li><br>
-                    </a>
-                    <% }); %>
-                </ul>  
-            </section>
-            <section class="col-sm-12">
-                <% include ../partials/comment %>
-            </section>
-        </main>
-    </div>
-    
-    <% include ../partials/gallery %>
-    
-    <div id="blueimp-gallery" class="blueimp-gallery">
-        <div class="slides"></div>
-        <h3 class="title"></h3>
-        <a class="prev">‹</a>
-        <a class="next">›</a>
-        <a class="close">×</a>
-        <a class="play-pause"></a>
-        <ol class="indicator"></ol>
-    </div>
-    
-    
-   
+                        </a>
+                        <% }); %>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+
+    <% include ../partials/footer %>
     <% include ../partials/scripts %>
-</body>
+    </body>
 
 </html>

@@ -41,21 +41,48 @@ header.black {
 
 .links {
     margin: 0 auto;
-    max-width: 750px;
+    max-width: 2000px;
 }
 
 .crop{
-  width: 75px;
-  height: 75px;
+  width: 200px;
+  height: 250px;
   overflow: hidden;
   float:left;
 }
 
 .crop > img{
-  width: 75px;
+  width: 150px;
 
 }
 
 .gallery {
     padding-top: 100px;
+}
+
+/* movie ejs style */
+ .movie-text {
+     font: 15px Arial, Helvetica, sans-serif;
+     line-height: 150%;
+     color: #666666;
+ }
+   
+ .movie-text-content {
+     font: 20px Arial, Helvetica, sans-serif;
+     line-height: 150%;
+     color: #37a;
+ }
+    
+ .movie-text-content-alt {
+     font: 20px Arial, Helvetica, sans-serif;
+     line-height: 150%;
+ }
+
+ .strong-red-text {
+     font: 20px;
+     font-size: 200%;
+     line-height: 200%;
+     color: #FF0000;  
+     text-align: center;
+     /*top: 20; left: 0; bottom: 20; right: 50;*/
 }
