@@ -110,7 +110,7 @@ app.post("/login", function(request, response) {
 });
 
 app.get("/login", function(request, response) {
-    response.redirect('/');
+    response.render('pages/sign', { signupError: null, loginError: null, username: null });
 });
 
 app.post("/signup", function(request, response) {

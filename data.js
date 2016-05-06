@@ -39,7 +39,7 @@ MongoClient.connect(fullMongoUrl)
                               encryptedPassword: hashpwd,
                                currentSessionId: sid,
                                         profile: {  name: "",
-                                                    like: "",
+                                                    like: [],
                                                      uid: "",
                                                birthYear: 0
                                                  }
@@ -74,6 +74,22 @@ MongoClient.connect(fullMongoUrl)
                                                                             } }).then(function() {
                 return exports.getUserBySessionId(sid);
             });
+        };
+        
+        exports.likeBySid = function(sid, imdbid) {
+            return userCollection.find({ currentSessionId: sid }).limit(1).toArray().then(function(listOfUsers) {
+                if (listOfUsers.length === 0) {
+                    throw "Could not find user with sid of " + sid;;
+                }
+                var array = listOfUsers[0].like;
+                array.add(imdbid);
+                return  userCollection.update({ currentSessionId: sid }, { $set: { profile: {
+                                                                                            like:array
+                                                                                        }
+                                                                                } }).then(function() {
+                    return exports.getUserBySessionId(sid);
+                });
+            }); 
         };
 
         exports.updateSid = function(uname, sid) {
@@ -155,7 +171,7 @@ MongoClient.connect(fullMongoUrl)
                                                         actors: fullObj.Actors,
                                                    description: shortPlot,
                                                        imgname: imgCurrentName,
-                                                       likedby: "",
+                                                       likedby: [],
                                                           json: fullObj
                         }).then(function(newDoc) {
                             console.log("successfully inserted");
