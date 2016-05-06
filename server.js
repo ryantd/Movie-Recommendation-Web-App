@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var Guid = require('Guid');
 var fs = require('fs');
 var xss= require("xss");
-var rp = require('request-promise');
 
 // This package exports the function to create an express instance:
 var app = express();
@@ -36,21 +35,6 @@ app.get("/startup", function(request, response) {
 });
 
 app.get("/", function(request, response) {
-<<<<<<< HEAD
-    data.getAllMovies().then(function(movieList) {     
-        if (request.cookies.sessionId) {
-            var currentSid = request.cookies.sessionId;
-            data.getUserBySessionId(currentSid).then(function(user) {
-                response.render('pages/profile', { data: user.profile, sid: user.currentSessionId, successInfo: null, updateError: "You have already logged in." });
-            }, function(errorMessage) {
-                response.clearCookie("sessionId");
-                response.status(500).render('pages/home', { signupError: null, loginError: "No cookies found, please log in again." });
-            });
-        } else {
-            response.render("pages/home", { movieList: movieList, signupError: null, loginError: null, username: null });
-        }
-    });
-=======
 
     if (request.cookies.sessionId) {
         var currentSid = request.cookies.sessionId;
@@ -63,7 +47,6 @@ app.get("/", function(request, response) {
     } else {
         response.render("pages/home", { signupError: null, username: null,loginError: null });
     }
->>>>>>> yuanwu
 });
 
 app.post("/profile", function(request, response) {
@@ -177,47 +160,41 @@ app.get("/logout", function(request, response) {
 });
 
 
-app.post("/search", function (request, response) {
+app.get("/search", function (request, response) {
     
-    data.getMovieByKeyWord(request.body.keyword).then(function(movieList) {     
-        
-        response.render('pages/search', {movieList: movieList,errorMessage:null, signupError: null, loginError: null})
-    }, function(errorMessage) {
-       
-        response.status(500).render('pages/search', { movieList: null,errorMessage: errorMessage,signupError: null, loginError: null});
+    data.getMovieByKeyWord("hateful").then(function(movieList) {     
+        //console.log(movieList);
+        response.render('pages/search', {movieList: movieList, signupError: null, loginError: null})
     });
 })
 
 app.get("/select/:genre", function (request, response) {
-
-    if (request.params.genre === "all") {
-        data.getAllMovies().then(function(movieList) {     
-            response.json(movieList);
-        });
-    } else {
-        data.getMovieByGenre(request.params.genre).then(function(movieList) {     
-            response.json(movieList);
-        });
-    }
-
-})
-
-app.get("/movie/:id", function (request, response) {
-    
-    data.getMovieByImdb(request.params.id).then(function(movieList) {     
-        
-        var majorGenre = (movieList.genre).split(", ")[0];
-        
-        data.getMovieByGenre(majorGenre).then(function(recMovies) {
-            
-            response.render('pages/movie', {movieList: movieList,recMovies: recMovies, signupError: null, loginError: null})
-        })
+    //console.log(request.params.genre);
+    data.getMovieByGenre(request.params.genre).then(function(movieList) {     
+        //console.log(movieList);
+        response.render('pages/select', {movieList: movieList, signupError: null, loginError: null})
     });
 })
 
-app.get("/test", function (request, response) {
-    
-    response.render('pages/test')
+app.get("/select", function (request, response) {
+    //console.log(request.params.genre);
+    data.getAllMovies().then(function(movieList) {     
+        //console.log(movieList);
+        response.render('pages/select', {movieList: movieList, signupError: null, loginError: null})
+    });
+})
+
+app.get("/movie/:id", function (request, response) {
+    //console.log(request.params.genre);
+    data.getMovieByImdb(request.params.id).then(function(movieList) {     
+        //console.log(movieList);
+        var majorGenre = (movieList.genre).split(", ")[0];
+        //console.log(majorGenre);
+        data.getMovieByGenre(majorGenre).then(function(recMovies) {
+            //console.log(recMovies);
+            response.render('pages/movie', {movieList: movieList,recMovies: recMovies, signupError: null, loginError: null})
+        })
+    });
 })
 // We can now navigate to localhost:3000
 app.listen(3000, function() {
