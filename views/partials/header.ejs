@@ -21,190 +21,30 @@
 		    <div class="col-md-4">
 
 		    	<div class="btn-group">
+                    <% if(username){%>
+                    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= username %>
+                    </button>
+                    
+                    <% } else {%>
                     <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     My Account
                     </button>
+                    <% }%>
                     <div class="dropdown-menu">
-                        <a id="modal-936086" href="#modal-container-936086" role="button" class="btn" data-toggle="modal">Sign in</a>
+                        <a id="modal-936086" href="/login" role="button" class="btn" >Sign in/Sign up</a>
 
-                        <a id="modal-936087" href="#modal-container-936087" role="button" class="btn" data-toggle="modal">Sign up</a>
+                       
+                        <a id="modal-936088" href="/profile" role="button" class="btn" >Profile</a>
 
-                        <a id="modal-936088" href="#modal-container-936088" role="button" class="btn" data-toggle="modal">Profile</a>
-
-                        <a id="modal-936089" href="#modal-container-936089" role="button" class="btn" data-toggle="modal">Log out</a>
+                        <a id="modal-936089" href="logout" role="button" class="btn" >Log out</a>
                     </div>
                 </div>
 		    </div>
-		    <!-- Modals for SignIn/SignUp/Profile/SignOut -->
-		    <div class="modal fade" id="modal-container-936086" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							 
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-								×
-							</button>
-							<h4 class="modal-title" id="myModalLabel">
-								Sign In
-							</h4>
-						</div>
-						<div class="modal-body">
-							<form action="/login" method="POST" class="form-horizontal">
-                    <div class="form-group">
-                        <label class="control-label col-sm-3" for="loginname">Username</label>
-                        <div class="col-sm-7">
-                            <input type="text" name="loginname" class="form-control" id="loginname"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3" for="loginpwd">Password</label>
-                        <div class="col-sm-7">
-                            <input type="text" name="loginpwd" class="form-control" id="loginpwd"/>
-                        </div>
-                    </div>
-                    <% if (loginError) { %>
-                        <div class="alert alert-danger" role="alert">
-                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                            <%= loginError %>
-                        </div>
-                    <% } %>
-                    <button type="submit" class="btn btn-default col-sm-offset-3" style="margin-top: 10px">Sign in
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    </button>
-                </form>
-						</div>
-						<div class="modal-footer">
-							 
-							<button type="button" class="btn btn-default" data-dismiss="modal">
-								Close
-							</button> 
-							<button type="button" class="btn btn-primary">
-								Save changes
-							</button>
-						</div>
-					</div>
-					
-				</div>
-				
-			</div> 
+		  
+		
 			
-			<div class="modal fade" id="modal-container-936087" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							 
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-								×
-							</button>
-							<h4 class="modal-title" id="myModalLabel">
-								Sign Up
-							</h4>
-						</div>
-						<div class="modal-body">
-							<form action="/signup" method="POST" class="form-horizontal">
-                    <div class="form-group">
-                        <label class="control-label col-sm-3" for="signupname">Username</label>
-                        <div class="col-sm-7">
-                            <input type="text" name="signupname" class="form-control" id="signupname"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3" for="signuppwd">Password</label>
-                        <div class="col-sm-7">
-                            <input type="text" name="signuppwd" class="form-control" id="signuppwd"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3" for="confirmpwd">Confirm Password</label>
-                        <div class="col-sm-7">
-                            <input type="text" name="confirmpwd" class="form-control" id="confirmpwd"/>
-                        </div>
-                    </div>
-                    <% if (signupError) { %>
-                        <div class="alert alert-danger" role="alert">
-                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                            <%= signupError %>
-                        </div>
-                    <% } %>
-                    <button type="submit" class="btn btn-default col-sm-offset-3" style="margin-top: 10px">Create Account
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    </button>
-                </form>
-						</div>
-						<div class="modal-footer">
-							 
-							<button type="button" class="btn btn-default" data-dismiss="modal">
-								Close
-							</button> 
-							<button type="button" class="btn btn-primary">
-								Save changes
-							</button>
-						</div>
-					</div>
-					
-				</div>
-				
-			</div>
 			
-			<div class="modal fade" id="modal-container-936088" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							 
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-								×
-							</button>
-							<h4 class="modal-title" id="myModalLabel">
-								Modal title
-							</h4>
-						</div>
-						<div class="modal-body">
-							...
-						</div>
-						<div class="modal-footer">
-							 
-							<button type="button" class="btn btn-default" data-dismiss="modal">
-								Close
-							</button> 
-							<button type="button" class="btn btn-primary">
-								Save changes
-							</button>
-						</div>
-					</div>
-					
-				</div>
-				
-			</div>
-			
-			<div class="modal fade" id="modal-container-936089" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							 
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-								×
-							</button>
-							<h4 class="modal-title" id="myModalLabel">
-								Modal title
-							</h4>
-						</div>
-						<div class="modal-body">
-							...
-						</div>
-						<div class="modal-footer">
-							 
-							<button type="button" class="btn btn-default" data-dismiss="modal">
-								Close
-							</button> 
-							<button type="button" class="btn btn-primary">
-								Save changes
-							</button>
-						</div>
-					</div>
-					
-				</div>
-				
-			</div>
 	    </div>
 
     </div>

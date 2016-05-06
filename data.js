@@ -32,7 +32,7 @@ MongoClient.connect(fullMongoUrl)
             
             return userCollection.find({ username: uname }).limit(1).toArray().then(function(listOfUsers) {
                 if (listOfUsers.length != 0) {
-                    throw "Looks like this username is already in use.";
+                    throw "This username is already in use.";
                 }
                 return userCollection.insertOne({ _id: Guid.create().toString(),
                                        username: uname,
@@ -59,7 +59,7 @@ MongoClient.connect(fullMongoUrl)
                     throw "Could not find user with name of " + uname;
                 }
                 if (!bcrypt.compareSync(pwd, listOfUsers[0].encryptedPassword)) {
-                    throw "We are unable to match your username and password. Please reenter your existing information and if that does not work please try your previous account information.";
+                    throw "We are unable to match your username and password. ";
                 }
                 exports.updateSid(uname, sid);
                 return listOfUsers[0];

@@ -39,13 +39,13 @@ app.get("/", function(request, response) {
     if (request.cookies.sessionId) {
         var currentSid = request.cookies.sessionId;
         data.getUserBySessionId(currentSid).then(function(user) {
-            response.render('pages/profile', { data: user.profile, sid: user.currentSessionId, successInfo: null, updateError: "You have already logged in." });
+            response.render('pages/profile', { data: user.profile, username: user.username,sid: user.currentSessionId, successInfo: null, updateError: "You have already logged in." });
         }, function(errorMessage) {
             response.clearCookie("sessionId");
-            response.status(500).render('pages/home', { signupError: null, loginError: "No cookies found, please log in again." });
+            response.status(500).render('pages/home', { signupError: null, username: null,loginError: "No cookies found, please log in again." });
         });
     } else {
-        response.render("pages/home", { signupError: null, loginError: null });
+        response.render("pages/home", { signupError: null, username: null,loginError: null });
     }
 });
 
@@ -63,9 +63,9 @@ app.post("/profile", function(request, response) {
     var currentSid = request.cookies.sessionId;
 
     data.updateProfile(currentSid, fname, lname, email).then(function(user) {
-        response.render('pages/profile', { data: user.profile, sid: user.currentSessionId, successInfo: "Updated Successfully", updateError: null });
+        response.render('pages/profile', { data: user.profile, username: user.username,sid: user.currentSessionId, successInfo: "Updated Successfully", updateError: null });
     }, function(errorMessage) {
-        response.status(500).render('pages/profile', { data: user.profile, sid: user.currentSessionId, successInfo: null, updateError: errorMessage });
+        response.status(500).render('pages/profile', { data: user.profile, username: user.username,sid: user.currentSessionId, successInfo: null, updateError: errorMessage });
     });
 });
 
@@ -74,13 +74,13 @@ app.get("/profile", function(request, response) {
     if (request.cookies.sessionId) {
         var currentSid = request.cookies.sessionId;
         data.getUserBySessionId(currentSid).then(function(user) {
-            response.render('pages/profile', { data: user.profile, sid: user.currentSessionId, successInfo: null, updateError: null });
+            response.render('pages/profile', { data: user.profile,username: user.username, sid: user.currentSessionId, successInfo: null, updateError: null });
         }, function(errorMessage) {
             response.clearCookie("sessionId");
-            response.status(500).render('pages/home', { signupError: null, loginError: "No cookies found, please log in again." });
+            response.status(500).render('pages/home', { signupError: null, username: null,loginError: "No cookies found, please log in again." });
         });
     } else {
-        response.status(500).render('pages/home', { signupError: null, loginError: "Please log in first." });
+        response.status(500).render('pages/home', { signupError: null, username: null,loginError: "Please log in first." });
     }
 });
 
@@ -101,14 +101,24 @@ app.post("/login", function(request, response) {
 
     data.loginUser(uname, pwd, sid).then(function(user) {
         response.cookie("sessionId", sid, { expires: expiresAt });
-        response.render('pages/profile', { data: user.profile, sid: user.currentSessionId, successInfo: null, updateError: null });
+        response.render('pages/home', { data: user.profile, username: user.username, sid: user.currentSessionId, successInfo: null, updateError: null });
     }, function(errorMessage) {
-        response.status(500).render('pages/home', { signupError: null, loginError: errorMessage });
+        response.status(500).render('pages/sign', { signupError: null, username: null,loginError: errorMessage });
     });
 });
 
 app.get("/login", function(request, response) {
-    response.redirect('/');
+    if (request.cookies.sessionId) {
+        var currentSid = request.cookies.sessionId;
+        data.getUserBySessionId(currentSid).then(function(user) {
+            response.render('pages/sign', { data: user.profile,username: user.username, sid: user.currentSessionId, successInfo: null, updateError: null, loginError: "You have already logged in!"});
+        }, function(errorMessage) {
+            response.clearCookie("sessionId");
+            response.status(500).render('pages/home', { signupError: null, username: null,loginError: "No cookies found, please log in again." });
+        });
+    }
+    else
+    response.render('pages/sign',{ signupError: null, username: null,loginError: null });
 });
 
 app.post("/signup", function(request, response) {
@@ -130,22 +140,22 @@ app.post("/signup", function(request, response) {
     response.cookie("sessionId", sid, { expires: expiresAt });
     
     data.createUser(uname, pwd, cpwd, sid).then(function(user) {
-        response.render('pages/profile', { data: user.profile, sid: sid, successInfo: null, updateError: null });
+        response.render('pages/home', { data: user.profile, username: user.username,sid: sid, successInfo: null, updateError: null });
     }, function(errorMessage) {
-        response.status(500).render('pages/home', { signupError: errorMessage, loginError: null });
+        response.status(500).render('pages/sign', { signupError: errorMessage, username: null,loginError: null });
     });
 });
 
 app.get("/signup", function(request, response) {
-    response.redirect('/');
+response.render('pages/sign',{ signupError: null, username: null,loginError: null });
 });
 
 app.get("/logout", function(request, response) {
     if (request.cookies.sessionId) {
         response.clearCookie("sessionId");
-        response.render("pages/home", { signupError: null, loginError: "Log out successfully, please log in again" });
+        response.render("pages/home", { signupError: null, username: null,loginError: "Log out successfully, please log in again" });
     } else {
-        response.render("pages/home", { signupError: null, loginError: "You need log in first" });
+        response.render("pages/home", { signupError: null, username: null,loginError: "You need log in first" });
     }
 });
 
