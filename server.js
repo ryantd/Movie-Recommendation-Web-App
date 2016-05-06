@@ -150,9 +150,9 @@ app.get("/logout", function(request, response) {
 });
 
 
-app.get("/search", function (request, response) {
-    
-    data.getMovieByKeyWord("hateful").then(function(movieList) {     
+app.post("/search", function (request, response) {
+    //console.log(typeof request.body.keyword);
+    data.getMovieByKeyWord(request.body.keyword).then(function(movieList) {     
         //console.log(movieList);
         response.render('pages/search', {movieList: movieList, signupError: null, loginError: null})
     });

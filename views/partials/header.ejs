@@ -11,18 +11,29 @@
 			    <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/" />
 		    </div>
 
-		    <div class="col-md-4">
-		    <form class="navbar-search">
-             <input type="text" class="search-query span3 form-control"  placeholder="search">
-</form>
-
+		    <div class="col-md-5" align="left">
+		    	<br>
+		    	<br>
+		    	<br>
+				<form role="form-inline" action="/search" method="POST">
+					<div class="form-group">
+						<label><input type="text" class="form-control" name="keyword" id="search" placeholder="Search for..." size="40"></label>
+						<button class="btn btn-default" type="submit">
+							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						</button>
+					</div>	
+				</form>
+				<!-- /input-group -->
 		    </div>
 
-		    <div class="col-md-4">
-
+		    <div class="col-md-3" align="right">
+                <br>
+		    	<br>
+		    	<br>
 		    	<div class="btn-group">
-                    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    My Account
+                    <button class="btn btn-secondary btn-small dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    	<span class="caret"></span>
+                        My Account
                     </button>
                     <div class="dropdown-menu">
                         <a id="modal-936086" href="#modal-container-936086" role="button" class="btn" data-toggle="modal">Sign in</a>
@@ -82,10 +93,8 @@
 								Save changes
 							</button>
 						</div>
-					</div>
-					
-				</div>
-				
+					</div>	
+				</div>	
 			</div> 
 			
 			<div class="modal fade" id="modal-container-936087" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
