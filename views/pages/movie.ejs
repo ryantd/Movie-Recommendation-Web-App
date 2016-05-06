@@ -7,6 +7,7 @@
 
 <body>
     <% include ../partials/header %>
+
     <div class="container">
         <div class="container-fluid">
             <h2>
@@ -14,7 +15,7 @@
             </h2>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="<%= movieList.json.Poster %>"  alt="<%= movieList.title %>" />
+                    <img src="<%= movieList.json.Poster %>"  alt="<%= movieList.title %>" onerror="if (this.src != 'error.jpg') this.src = 'http://7xtdxk.com2.z0.glb.clouddn.com/notfound.png';"/>
                 </div>
           
                 <div class="col-md-4">

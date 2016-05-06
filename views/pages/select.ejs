@@ -85,7 +85,7 @@
                     <li>director: <%= movieObject.director %></li><br>
                     <li>Actors: <%= movieObject.actors %></li><br>
                     <a href="/movie/<%= movieObject.imdbId %>">
-                        <img src="<%= movieObject.json.Poster %>"  alt="<%= movieObject.title %>" />
+                        <img src="<%= movieObject.json.Poster %>"  alt="<%= movieObject.title %>" onerror="if (this.src != 'error.jpg') this.src = 'http://7xtdxk.com2.z0.glb.clouddn.com/notfound.png';"/>
                     </a>
                     
                     <% }); %>

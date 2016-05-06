@@ -231,7 +231,7 @@ MongoClient.connect(fullMongoUrl)
             
             return movieCollection.find({ $or:[ {title: {$regex: keyWord.toString(),$options: "$i" }},
                                                  {actors:{ $regex: keyWord.toString(), $options: "$i"}},
-                                                  {directors: {$regex: keyWord.toString(), $options: "$i"}}]}).toArray().then(function(listOfMovies) {
+                                                  {director: {$regex: keyWord.toString(), $options: "$i"}}]}).toArray().then(function(listOfMovies) {
                                                       if (listOfMovies.length === 0) {
                                                           //console.log("lol");
                                                           omdb.search(keyWord.toString(), function (err, movies) {
