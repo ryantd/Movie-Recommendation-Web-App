@@ -82,7 +82,7 @@ MongoClient.connect(fullMongoUrl)
                     throw "Could not find user with sid of " + sid;;
                 }
                 var array = listOfUsers[0].like;
-                array.add(imdbid);
+                array.push(imdbid);
                 return  userCollection.update({ currentSessionId: sid }, { $set: { profile: {
                                                                                             like:array
                                                                                         }
