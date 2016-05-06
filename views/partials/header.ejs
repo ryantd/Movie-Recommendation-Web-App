@@ -1,16 +1,13 @@
-<header class="row black">
-    <div class="container">
-	    <div class="col-md-12">
-	        <h1 class="text-white text-3d header-title ">Movie Recommender System</h1>
-	        
-	    </div>
+<header class="row back-im">
+    <div class="container; movie-pic">
 
-	<div class="container-fluid">
+	<div class="container-fluid" style="margin-bottom:10px">
 	    <div class="row">
-		    <div class="col-md-4">
-			    <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/" />
+		    <div class="col-md-3">
+			    <img alt="logo" src="/assets/resources/img/logo.jpg" width="120" style="margin-left:150px"/>
 		    </div>
 
+<<<<<<< HEAD
 		    <div class="col-md-5" align="left">
 		    	<br>
 		    	<br>
@@ -34,17 +31,38 @@
                     <button class="btn btn-secondary btn-small dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     	<span class="caret"></span>
                         My Account
+=======
+		    <div class="col-md-6" style="padding-left:50px; padding-right:50px">
+		    	<div class="input-group" style="margin-top:60px">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+        	                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Search for...">
+                </div>
+		    </div>
+
+		    <div class="col-md-3" >
+		    	<div class="btn-group" style="margin-top:60px; margin-left:10px">
+                    <% if(username){%>
+                    <button class="btn btn-secondary btn-small dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= username %>
                     </button>
-                    <div class="dropdown-menu">
-                        <a id="modal-936086" href="#modal-container-936086" role="button" class="btn" data-toggle="modal">Sign in</a>
-
-                        <a id="modal-936087" href="#modal-container-936087" role="button" class="btn" data-toggle="modal">Sign up</a>
-
-                        <a id="modal-936088" href="#modal-container-936088" role="button" class="btn" data-toggle="modal">Profile</a>
-
-                        <a id="modal-936089" href="#modal-container-936089" role="button" class="btn" data-toggle="modal">Log out</a>
+                    
+                    <% } else {%>
+                    <button class="btn btn-secondary btn-small dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    My Account
+>>>>>>> cbbdaf3f92a7e15bd29b714874f06aab733c1729
+                    </button>
+                    <% }%>
+                    <div class="dropdown-menu" >
+                       <div> <a id="modal-936086" href="/login" role="button" class="btn">Sign in/Sign up</a>  </div>                    
+                        <div><a id="modal-936088" href="/profile" role="button" class="btn" >Profile</a></div>
+                        <div><a id="modal-936089" href="logout" role="button" class="btn" >Log out</a></div>
                     </div>
                 </div>
+<<<<<<< HEAD
 		    </div>
 		    <!-- Modals for SignIn/SignUp/Profile/SignOut -->
 		    <div class="modal fade" id="modal-container-936086" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -214,7 +232,9 @@
 				</div>
 				
 			</div>
+=======
+		    </div>	
+>>>>>>> cbbdaf3f92a7e15bd29b714874f06aab733c1729
 	    </div>
-
     </div>
 </header>

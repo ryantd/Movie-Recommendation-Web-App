@@ -1,0 +1,111 @@
+<div class="filter">    
+    <div class="filter-title">
+        <h2>Select your taste</h2>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 filter-group">
+                <button class="btn btn-default filter-controller" data-func="all">
+                    <em class="glyphicon glyphicon-film"></em> ALL
+                </button>
+                <button class="btn btn-default filter-controller" data-func="drama">
+                    <em class="glyphicon glyphicon-film"></em> Drama
+                </button>
+                <button class="btn btn-default filter-controller" data-func="adventure">
+                    <em class="glyphicon glyphicon-film"></em> Adventure
+                </button>
+                <button class="btn btn-default filter-controller" data-func="crime">
+                    <em class="glyphicon glyphicon-film"></em> Crime
+                </button>
+                <button class="btn btn-default filter-controller" data-func="comedy">
+                    <em class="glyphicon glyphicon-film"></em> Comedy
+                </button>
+                <button class="btn btn-default filter-controller" data-func="thriller">
+                    <em class="glyphicon glyphicon-film"></em> Thriller
+                </button>
+                <button class="btn btn-default filter-controller" data-func="action">
+                    <em class="glyphicon glyphicon-film"></em> Action
+                </button>
+                <button class="btn btn-default filter-controller" data-func="mystery">
+                    <em class="glyphicon glyphicon-film"></em> Mystery
+                </button>
+                <button class="btn btn-default filter-controller" data-func="biography">
+                    <em class="glyphicon glyphicon-film"></em> Biography
+                </button>
+                <button class="btn btn-default filter-controller" data-func="sci-fi">
+                    <em class="glyphicon glyphicon-film"></em> Sci-Fi
+                </button>
+                <button class="btn btn-default filter-controller" data-func="romance">
+                    <em class="glyphicon glyphicon-film"></em> Romance
+                </button>
+                <button class="btn btn-default filter-controller" data-func="war">
+                    <em class="glyphicon glyphicon-film"></em> War
+                </button>
+                <button class="btn btn-default filter-controller" data-func="fantasy">
+                    <em class="glyphicon glyphicon-film"></em> Fantasy
+                </button>
+                <button class="btn btn-default filter-controller" data-func="animation">
+                    <em class="glyphicon glyphicon-film"></em> Animation
+                </button>
+            </div>
+        </div>
+        <br>
+        <nav>
+            <div class="load-more">
+                <ul class="pager">
+                    <li class="previous">
+                        <a class="load-btn-old" data-num="8" data-cat="all">
+                            <span aria-hidden="true">&larr;</span>
+                            Previous
+                        </a>
+                    </li>
+                    <li class="next">
+                        <a class="load-btn-new" data-num="8" data-cat="all">
+                            Next
+                            <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+        </nav>
+        <div class="row">
+            <div class="col-md-12 filter-container">           
+                <% for (var i = 0; i < 9; i++) { %>
+                    <% if (i % 3 == 0) { %>
+                        <div class="row">
+                    <%}%>
+                    <div class="col-md-4 filter-entry">
+                        <a href="/movie/<%= movieList[i].imdbId %>">
+                            <img src="<%= movieList[i].json.Poster %>"  alt="<%= movieList[i].title %>" />
+                        </a>
+                        <p><%= movieList[i].title %> / <%= movieList[i].year %> / <%= movieList[i].json.imdbRating %></p>
+                    </div>
+                    <% if (i % 3 == 2) { %>
+                        </div>
+                    <%}%>
+                <% } %>
+            </div>
+        </div>
+        <nav>
+            <div class="load-more">
+                <ul class="pager">
+                    <li class="previous">
+                        <a class="load-btn-old" data-num="8" data-cat="all">
+                            <span aria-hidden="true">&larr;</span>
+                            Previous
+                        </a>
+                    </li>
+                    <li class="next">
+                        <a class="load-btn-new" data-num="8" data-cat="all">
+                            Next
+                            <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+        </nav>
+    </div>
+</div>      
+   

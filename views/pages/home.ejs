@@ -9,25 +9,6 @@
   
 
     <% include ../partials/header %>
-    <div class="container">
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-md-12">
-
-                  <% include ../partials/gallery_small %>
-                  <div id="blueimp-gallery" class="blueimp-gallery">
-                      <div class="slides"></div>
-                      <h3 class="title"></h3>
-                      <a class="prev">‹</a>
-                      <a class="next">›</a>
-                      <a class="close">×</a>
-                      <a class="play-pause"></a>
-                      <ol class="indicator"></ol>
-                  </div>
-              </div>
-          </div>
-      </div>
-
 <div class="container">
   <br>
   <div class="row">
@@ -36,30 +17,34 @@
 
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="0"
+            data-target="#myCarousel" data-slide-to="1"
+            data-target="#myCarousel" data-slide-to="2"
+            data-target="#myCarousel" data-slide-to="3"
+            class="active"></li>
+
+
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="/assets/resources/poster/tt0012349.jpg" alt="Chania" width="400" height="100">
-          </div>
+      <div class="item active">
+        <img src="/assets/resources/img/slide1.jpg" alt="Chania" width="460" height="345">
+      </div>
 
-          <div class="item">
-            <img src="/assets/resources/poster/tt0015864.jpg" alt="Chania" width="400" height="100">
-          </div>
+      <div class="item">
+        <img src="/assets/resources/img/slide2.jpg" alt="Chania" width="460" height="345">
+      </div>
 
-          <div class="item">
-            <img src="/assets/resources/poster/tt0317248.jpg" alt="Flower" width="400" height="100">
-          </div>
+      <div class="item">
+        <img src="/assets/resources/img/slide3.jpg" alt="Flower" width="460" height="345">
+      </div>
 
-          <div class="item">
-            <img src="/assets/resources/poster/tt0361748.jpg" alt="Flower" width="400" height="100">
-          </div>
-        </div>
+      <div class="item">
+        <img src="/assets/resources/img/slide4.jpg" alt="Flower" width="460" height="345">
+      </div>
+    </div>
+
 
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -84,32 +69,9 @@
       </section>
     </div>
   </div>
-    </div>
-<!--
-<div id="cf">
-
 </div>
--->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <% include ../partials/gallery %>
-                    <div id="blueimp-gallery" class="blueimp-gallery">
-                        <div class="slides"></div>
-                        <h3 class="title"></h3>
-                        <a class="prev">‹</a>
-                        <a class="next">›</a>
-                        <a class="close">×</a>
-                        <a class="play-pause"></a>
-                        <ol class="indicator"></ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-<% include ../partials/footer %>
+    <% include ../partials/filter %>
+    <% include ../partials/footer %>
     <% include ../partials/scripts %>
 </body>
-
 </html>

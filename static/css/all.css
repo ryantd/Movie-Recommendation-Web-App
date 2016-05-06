@@ -2,6 +2,10 @@ header.black {
     background-color: black;
 }
 
+header.back-im {
+    background-image: url("/assets/resources/img/background.jpg");
+}
+
 .text-gray {
     color: gray;
 }
@@ -86,3 +90,88 @@ header.black {
      text-align: center;
      /*top: 20; left: 0; bottom: 20; right: 50;*/
 }
+/* filter css */
+.filter-btn {
+    border-style : none;
+}
+
+.filter-group {
+    margin-top: 20px;
+}
+
+.filter-entry > a > img {
+    height: 250px;
+}
+
+.filter {
+    margin: auto;
+    width: 80%;
+    margin-top: 50px;
+}
+
+/* home slide */
+.carousel{
+  position:relative;
+  margin-top: 100px;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+      width: 150%;
+      margin: auto;
+}
+
+/* slide right text*/
+.rw-wrapper{
+  color: black;
+    width: 80%;
+    position: right;
+    margin: 110px auto 0 auto;
+    font-family: 'Bree Serif';
+    padding: 10px;
+    font-size: 36px;
+}
+.rw-words{
+    display: inline-block;
+}
+.rw-words-1 span{
+	max-width: 0;
+	display: inline-block;
+    opacity: 0;
+    overflow: hidden;
+    color: #6b969d;
+    animation: rotateWord 18s linear infinite 0s;
+}
+.rw-words-1 span:nth-child(2) {
+    animation-delay: 3s;
+    color: #6b969d;
+}
+.rw-words-1 span:nth-child(3) {
+    animation-delay: 6s;
+    color: #6b969d;
+}
+.rw-words-1 span:nth-child(4) {
+    animation-delay: 9s;
+    color: #6b969d;
+}
+.rw-words-1 span:nth-child(5) {
+    animation-delay: 12s;
+    color: #6b969d;
+}
+.rw-words-1 span:nth-child(6) {
+    animation-delay: 15s;
+    color: #6b969d;
+}
+@keyframes rotateWord {
+    2% { opacity: 0; max-width: 0; transform: translateY(-30px); }
+    5% { opacity: 1; max-width: 200px; transform: translateY(5px);}
+    17% { opacity: 1; max-width: 200px; transform: translateY(5px); }
+    20% { opacity: 0; max-width: 0; transform: translateY(30px); }
+    80% { opacity: 0; max-width: 0; }
+}
+@media screen and (max-width: 768px){
+    .rw-sentence { font-size: 18px; }
+}
+@media screen and (max-width: 320px){
+    .rw-sentence { font-size: 9px; }
+}
+
