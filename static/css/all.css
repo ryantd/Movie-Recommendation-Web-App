@@ -1,3 +1,25 @@
+.links-like {
+    margin: 0 auto;
+    max-width: 2000px;
+}
+
+.crop-like{
+  width: 75px;
+  height: 75px;
+  overflow: hidden;
+  border-radius: 50%;
+  float:left;
+  margin-right: 20px;
+}
+
+.crop-like > img{
+  width: 75px;
+
+}
+
+.gallery-like {
+    padding-top: 30px;
+}
 header.black {
     background-color: black;
 }
