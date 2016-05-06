@@ -154,7 +154,7 @@ app.get("/search", function (request, response) {
     
     data.getMovieByKeyWord("hateful").then(function(movieList) {     
         //console.log(movieList);
-        response.render('pages/search', {movieList: movieList})
+        response.render('pages/search', {movieList: movieList, signupError: null, loginError: null})
     });
 })
 
@@ -162,7 +162,7 @@ app.get("/select/:genre", function (request, response) {
     //console.log(request.params.genre);
     data.getMovieByGenre(request.params.genre).then(function(movieList) {     
         //console.log(movieList);
-        response.render('pages/select', {movieList: movieList})
+        response.render('pages/select', {movieList: movieList, signupError: null, loginError: null})
     });
 })
 
@@ -170,7 +170,7 @@ app.get("/select", function (request, response) {
     //console.log(request.params.genre);
     data.getAllMovies().then(function(movieList) {     
         //console.log(movieList);
-        response.render('pages/select', {movieList: movieList})
+        response.render('pages/select', {movieList: movieList, signupError: null, loginError: null})
     });
 })
 
@@ -182,7 +182,7 @@ app.get("/movie/:id", function (request, response) {
         //console.log(majorGenre);
         data.getMovieByGenre(majorGenre).then(function(recMovies) {
             //console.log(recMovies);
-            response.render('pages/movie', {movieList: movieList,recMovies: recMovies})
+            response.render('pages/movie', {movieList: movieList,recMovies: recMovies, signupError: null, loginError: null})
         })
     });
 })
