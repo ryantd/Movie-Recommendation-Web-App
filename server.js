@@ -46,7 +46,7 @@ app.get("/", function(request, response) {
                 response.status(500).render('pages/home', { signupError: null, loginError: "No cookies found, please log in again." });
             });
         } else {
-            response.render("pages/home", { movieList: movieList, signupError: null, loginError: null });
+            response.render("pages/home", { movieList: movieList, signupError: null, loginError: null, username: null });
         }
     });
 });
