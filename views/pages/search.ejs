@@ -13,13 +13,23 @@
                 
                 <h2>Search Results</h2>
                 <br>
+                <% if (errorMessage) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span>
+                        <%= errorMessage %>
+                    </div>
+                <% } else { %>               
                 <% movieList.forEach(function(movieObject){ %>
                 <table width="100%" >
                     <tbody> 
                         <tr class="item">
                             <td width="100" valign="top" class="col-sm-4">
                                 <a href="/movie/<%= movieObject.imdbId %>" >
-                                    <img src="<%= movieObject.json.Poster %>"  alt="<%= movieObject.title %>" onerror="if (this.src != 'error.jpg') this.src = 'http://7xtdxk.com2.z0.glb.clouddn.com/notfound.png';" "width = "200" height="300"/>
+                                    <img src="<%= movieObject.json.Poster %>"
+                                    alt="<%= movieObject.title %>" onerror="if (this.src != 'error.jpg') 
+                                    this.src = '/assets/resources/notfound.png';" 
+                                    "width = "168" height="300"/>
                                 </a>     
                             </td>
                             <td valign="top" class="col-sm-8">
@@ -37,6 +47,8 @@
                 </table>
                 <hr />
                 <% }); %> 
+                <% } %>
+
             </section>
 
         </main>
@@ -56,6 +68,10 @@
     
     
     <% include ../partials/scripts %>
+    <script src="/assets/js/lazy.js"></script>
+    <script src="/assets/js/lazy1.js"></script>
+    <script src="/assets/js/jquery.lazyload.js"></script>
+
 </body>
 
 </html>
