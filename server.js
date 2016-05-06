@@ -153,14 +153,18 @@ app.get("/logout", function(request, response) {
 
 
 app.post("/search", function (request, response) {
-    //console.log(typeof request.body.keyword);
+    
     data.getMovieByKeyWord(request.body.keyword).then(function(movieList) {     
-        //console.log(movieList);
-        response.render('pages/search', {movieList: movieList, signupError: null, loginError: null})
+        
+        response.render('pages/search', {movieList: movieList,errorMessage:null, signupError: null, loginError: null})
+    }, function(errorMessage) {
+       
+        response.status(500).render('pages/search', { movieList: null,errorMessage: errorMessage,signupError: null, loginError: null});
     });
 })
 
 app.get("/select/:genre", function (request, response) {
+<<<<<<< HEAD
     if (request.params.genre === "all") {
         data.getAllMovies().then(function(movieList) {     
             response.json(movieList);
@@ -170,19 +174,39 @@ app.get("/select/:genre", function (request, response) {
             response.json(movieList);
         });
     }
+=======
+    
+    data.getMovieByGenre(request.params.genre).then(function(movieList) {     
+        
+        response.render('pages/select', {movieList: movieList, signupError: null, loginError: null})
+    });
+})
+
+app.get("/select", function (request, response) {
+    
+    data.getAllMovies().then(function(movieList) {     
+        
+        response.render('pages/select', {movieList: movieList, signupError: null, loginError: null})
+    });
+>>>>>>> will
 })
 
 app.get("/movie/:id", function (request, response) {
-    //console.log(request.params.genre);
+    
     data.getMovieByImdb(request.params.id).then(function(movieList) {     
-        //console.log(movieList);
+        
         var majorGenre = (movieList.genre).split(", ")[0];
-        //console.log(majorGenre);
+        
         data.getMovieByGenre(majorGenre).then(function(recMovies) {
-            //console.log(recMovies);
+            
             response.render('pages/movie', {movieList: movieList,recMovies: recMovies, signupError: null, loginError: null})
         })
     });
+})
+
+app.get("/test", function (request, response) {
+    
+    response.render('pages/test')
 })
 // We can now navigate to localhost:3000
 app.listen(3000, function() {

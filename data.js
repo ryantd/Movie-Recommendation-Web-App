@@ -233,28 +233,42 @@ MongoClient.connect(fullMongoUrl)
                                                  {actors:{ $regex: keyWord.toString(), $options: "$i"}},
                                                   {director: {$regex: keyWord.toString(), $options: "$i"}}]}).toArray().then(function(listOfMovies) {
                                                       if (listOfMovies.length === 0) {
-                                                          //console.log("lol");
                                                           omdb.search(keyWord.toString(), function (err, movies) {
                                                                 if(err) {
-                                                                    throw "error";
+                                                                    return console.error("error");
                                                                 }
+                                                                
                                                                 if(movies.length < 1) {
-                                                                    throw "No movies were found!";
+                                                                    return console.log("No movies were found!");
                                                                 }
+                                                                
+                                                                var list = [];
                                                                 for (var movie in movies) {
-                                                                    
-                                                                    console.log(movies[movie]);
                                                                     exports.createMovieByImdb(movies[movie].imdb);
+                                                                    list.push[movies[movie].imdb];
                                                                 }
-                                                                                                                                       
-                                                          }).then(function () {
-                                                              exports.getMovieByKeyWord(keyWord);
-                                                          })
+                                                                for (var i in list) {
+                                                                    listOfMovies.push(exports.getMovieByImdb(list[i]));
+                                                                }
+                                                                                                                                 
+                                                          });
+                                                          
+                                                          if (listOfMovies.length === 0) {
+                                                              console.log(listOfMovies.length);
+                                                              return Promise.reject("No movies were found!");
+                                                          } else {
+                                                              console.log("else");
+                                                              return listOfMovies.sort(compare);
+                                                          }
+                                                          
+                                                          
                                                       } else {
                                                           return listOfMovies.sort(compare);
                                                       }
                                                       
+                                                   
                                                   });
+                                                  
             
         }
         
