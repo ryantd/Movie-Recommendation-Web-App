@@ -1,0 +1,19 @@
+
+<div class="gallery-like">
+    <div class="container">
+        <div class="row">
+            <div id="links" class="links-like">
+                <% movieList.forEach(function(movieObject){ %>
+                    <a href="/movie/<%= movieObject.imdbId %>">
+                        <div class="crop-like">
+                            <img src="<%= movieObject.json.Poster %>"
+                            alt="<%= movieObject.title %>" 
+                            onerror="if (this.src != 'error.jpg') this.src = '/assets/resources/notfound.png';" 
+                           />
+                        </div>
+                    </a >
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>

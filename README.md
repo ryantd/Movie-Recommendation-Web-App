@@ -1,12 +1,51 @@
 # Movie Recommendation Web App
 
+##layer
+```
+├─┬ index
+│ ├── [public] header (login/signup/logout, user profile, search bar)
+│ ├── [public] popular movies based on rating(rottentomatoes)
+│ └── [public] footer
+│
+├─┬ movie profile
+│ ├── [public] header (login/signup/logout, user profile, search bar)
+│ ├── [public] movie details (title ...)
+│ ├── [public] recommendation movies based on tags(may be randomly)
+│ └── [public] footer
+│
+├─┬ movie search result
+│ ├── [public] header (login/signup/logout, user profile, search bar)
+│ ├── [public] movie list
+│ └── [public] footer
+│
+├─┬ log in
+│ ├── [public] login form
+│ ├── [public] link to signup
+│ └── [public] footer
+│
+├─┬ sign up
+│ ├── [public] signup form
+│ ├── [public] link to login
+│ └── [public] footer
+│
+└─┬ user profile
+  ├─┬ login
+  │ ├── [private] header (login/signup/logout, user profile, search bar)
+  │ ├── [private] all info (name, age ...)
+  │ ├── [private] like movies
+  │ ├── [private] advanced recommendation movies
+  │ └── [private] footer
+  └─┬ not login
+    └── [public] redirect to login page
+```
+
 ##git
 
-### create branch
+### (updated) create branch
 
-type `git checkout -b [xiaoyu]` to create your own branch
+type `git branch [xiaoyu]` to create your own branch
 
-type `git branch [xiaoyu]` to go to your own brance
+type `git checkout [xiaoyu]` to go to your own brance
 
 ### push to your own branch
 
@@ -20,25 +59,25 @@ type `git commit -m "update README file"` to record what you did in this commit 
 
 type `git push origin [xiaoyu]` to push your code to your own branch
 
-##mongodb export and import
+### (new) merge to dev
 
-mongodb export:
-mongodump --archive=test.20150715.gz --gzip --db lab7
+type `git branch` to check which branch are you in now, make sure you are in your own branch to operate
 
-mongodb import:
-mongorestore --gzip --archive=test.20150715.gz --db lab7
+type `git checkout dev` to go to dev branch
 
-##file clarifying
+type `git pull` to get up-to-date commits
 
-data.js -- db part
+type `git merge [xiaoyu]` to merge your commits in xiaoyu branch
 
-main.js -- search and recommendation part
+type `git push origin dev` to push dev to the github server
 
-user.js -- user sys part
+type `git checkout [xiaoyu]` to go to xiaoyu branch and continue your works
 
-resources/poster -- save the poster image
+type `git rebase dev` to update your local repo
 
-resources/data -- input files (scraping from imdb)
+## (new) instructions about first use
+
+firstly, when you type `node server.js`, please go to _http://localhost:3000/startup_ to init your database and download the poster images
 
 ##movie collection
 
@@ -75,11 +114,27 @@ encryptedPassword
 currentSessionId
 
 profile: {  name
+
             like
+            
             uid
+            
             birthYear
+            
 }
                                                  }
 
+##file clarifying
+
+data.js -- db part
+
+main.js -- search and recommendation part
+
+user.js -- user sys part
+
+resources/poster -- save the poster image
+
+resources/data -- input files (scraping from imdb)
+
 ##issues
-test
+

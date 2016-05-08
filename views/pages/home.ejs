@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <% include ../partials/header %>
+        <div class="container" style="width: 80%;">
+            <div class="slide-container">
+            <h2> Top Rated Movies </h2>
+                <div class="col-md-8">
+                    <div id="myCarousel" class="carousel slide half" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                          <li data-target="#myCarousel" data-slide-to="1"></li>
+                          <li data-target="#myCarousel" data-slide-to="2"></li>
+                          <li data-target="#myCarousel" data-slide-to="3"></li>
+                        </ol>
+                        
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active" id="slide0">
+                                <a href="movie/tt0111161">
+                                    <img src="/assets/resources/poster/tt0111161.jpg" alt="Chania" style="width:154px; display: inline;">
+                                </a>
+                                <a href="movie/tt0068646">
+                                    <img src="/assets/resources/poster/tt0068646.jpg" alt="Chania" style="width:154px;display: inline;">
+                                </a>
+                                <a href="movie/tt0071562">
+                                    <img src="/assets/resources/poster/tt0071562.jpg" alt="Chania" style="width:154px;display: inline;">
+                                </a>
+                                <a href="movie/tt0468569">
+                                    <img src="/assets/resources/poster/tt0468569.jpg" alt="Chania" style="width:157px;display: inline;"> 
+                                </a>
+                            </div>
+
+                            <div class="item" id="slide1">
+                                <a href="movie/tt0108052">
+                                    <img src="/assets/resources/poster/tt0108052.jpg" alt="Chania" style="width:154px; display: inline;">
+                                </a>
+                                <a href="movie/tt0050083">
+                                    <img src="/assets/resources/poster/tt0050083.jpg" alt="Chania" style="width:154px;display: inline;">
+                                </a>
+                                <a href="movie/tt0110912">
+                                    <img src="/assets/resources/poster/tt0110912.jpg" alt="Chania" style="width:154px;display: inline;">
+                                </a>
+                                <a href="movie/tt0167260">
+                                    <img src="/assets/resources/poster/tt0167260.jpg" alt="Chania" style="width:157px;display: inline;"> 
+                                </a>
+                            </div>
+
+                            <div class="item" id="slide2">
+                                <a href="movie/tt0060196">
+                                    <img src="/assets/resources/poster/tt0060196.jpg" alt="Chania" style="width:154px; display: inline;">
+                                </a>
+                                <a href="movie/tt0137523">
+                                    <img src="/assets/resources/poster/tt0137523.jpg" alt="Chania" style="width:154px;display: inline;">
+                                </a>
+                                <a href="movie/tt0120737">
+                                    <img src="/assets/resources/poster/tt0120737.jpg" alt="Chania" style="width:154px;display: inline;">
+                                </a>
+                                <a href="movie/tt0080684">
+                                    <img src="/assets/resources/poster/tt0080684.jpg" alt="Chania" style="width:157px;display: inline;"> 
+                                </a>
+                            </div>
+
+                            <div class="item" id="slide3">
+                                <a href="movie/tt0109830">
+                                    <img src="/assets/resources/poster/tt0109830.jpg" alt="Chania" style="width:154px; display: inline;">
+                                </a>
+                                <a href="movie/tt1375666">
+                                    <img src="/assets/resources/poster/tt1375666.jpg" alt="Chania" style="width:154px;display: inline;">
+                                </a>
+                                <a href="movie/tt0167261">
+                                    <img src="/assets/resources/poster/tt0167261.jpg" alt="Chania" style="width:154px;display: inline;">
+                                </a>
+                                <a href="movie/tt0073486">
+                                    <img src="/assets/resources/poster/tt0073486.jpg" alt="Chania" style="width:157px;display: inline;"> 
+                                </a>
+                            </div>     
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style="width:40px;">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style="width:40px;">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <section class="rw-wrapper">
+                        <span>We used </span>
+                            <div class="rw-words rw-words-1">
+                                <span>MongoDB</span>
+                                <span>omdbAPI</span>
+                                <span>Bootstrap</span>
+                                <span>JQuery</span>
+                                <span>disqus</span>
+                                <span>Node.js</span>
+                            </div>
+                        <br>
+                        <span>to build Website.</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <% include ../partials/filter %>
+        <% include ../partials/footer %>
+        <% include ../partials/scripts %>
+    </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+    <link href="/assets/css/select.css" rel="stylesheet">
+</head>
+
+<body>
+    <% include ../partials/header %>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6" id="select-group">
+                        <div class="row">
+                            <a href='/select'>
+                                <em class="glyphicon glyphicon-film"></em> ALL
+                            </a>
+                            <a href='/select/Drama'>
+                                <em class="glyphicon glyphicon-film"></em> Drama
+                            </a>
+                            <a href='/select/Adventure'>
+                                <em class="glyphicon glyphicon-film"></em> Adventure
+                            </a>
+                            <a href='/select/Crime'>
+                                <em class="glyphicon glyphicon-film"></em> Crime
+                            </a>
+                            <a href='/select/Comedy'>
+                                <em class="glyphicon glyphicon-film"></em> Comedy
+                            </a>
+                            <a href='/select/Thriller'>
+                                <em class="glyphicon glyphicon-film"></em> Thriller
+                            </a>
+                            <a href='/select/Action'>
+                                <em class="glyphicon glyphicon-film"></em> Action
+                            </a>
+                            <a href='/select/Mystery'>
+                                <em class="glyphicon glyphicon-film"></em> Mystery
+                            </a>
+                        </div>
+                        <div class="row" id= "second" >
+                            <a href='/select/Biography'>
+                                <em class="glyphicon glyphicon-film"></em> Biography
+                            </a>
+                            <a href='/select/Sci-Fi'>
+                                <em class="glyphicon glyphicon-film"></em> Sci-Fi
+                            </a>
+                            <a href='/select/Romance'>
+                                <em class="glyphicon glyphicon-film"></em> Romance
+                            </a>
+                            <a href='/select/War'>
+                                <em class="glyphicon glyphicon-film"></em> War
+                            </a>
+                            <a href='/select/Fantasy'>
+                                <em class="glyphicon glyphicon-film"></em> Fantasy
+                            </a>
+                            <a href='/select/Animation'>
+                                <em class="glyphicon glyphicon-film"></em> Animation
+                            </a>
+                        </div>    
+                        
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="container">
+        <main class="row">
+            <section class="col-sm-6">
+                
+                <br>
+                <ul>
+                    <% movieList.forEach(function(movieObject){ %>
+                    <li>Title: <%= movieObject.title %></li><br>
+                    <li>Year: <%= movieObject.year %></li><br>
+                    <li>Rating: <%= movieObject.json.imdbRating %></li><br>
+                    <li>Genre: <%= movieObject.genre %></li><br>
+                    <li>director: <%= movieObject.director %></li><br>
+                    <li>Actors: <%= movieObject.actors %></li><br>
+                    <a href="/movie/<%= movieObject.imdbId %>">
+                        <img src="<%= movieObject.json.Poster %>"  alt="<%= movieObject.title %>" onerror="if (this.src != 'error.jpg') this.src = '/assets/resources/notfound.png';"/>
+                    </a>
+                    
+                    <% }); %>
+                </ul>  
+            </section>
+
+        </main>
+    </div>       
+   
+    
+    <% include ../partials/gallery %>
+    
+    <div id="blueimp-gallery" class="blueimp-gallery">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+    </div>
+    
+
+   
+    <% include ../partials/scripts %>
+    <script src="/assets/js/lazy.js"></script>
+<script src="/assets/js/lazy1.js"></script>
+</body>
+
+</html>

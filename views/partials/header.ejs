@@ -1,0 +1,51 @@
+<header class="row back-im">
+    <div class="container; movie-pic">
+
+	<div class="container-fluid" style="margin-bottom:10px">
+	    <div class="row">
+		    <div class="col-md-3">
+                <a href="/" >
+			        <img alt="logo" src="/assets/resources/img/logo.jpg" width="120" style="margin-left:150px"/>
+                </a>
+		    </div>
+
+		    <div class="col-md-6" style="padding-left:50px; padding-right:50px">
+
+		    	<div class="input-group" style="margin-top:45px">
+                    <form role="form-inline" action="/search" method="POST">
+                        <div class="form-group">
+                            <div class="col-md-11">
+                                <label><input type="text" class="form-control" name="keyword" id="search" placeholder="Search for..." size="40"></label>
+                            </div>
+                            <div class="col-md-1" style="margin-left:-25px;">
+                                <button class="btn btn-default" type="submit">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </div>	
+                    </form>
+                </div>
+		    </div>
+
+		    <div class="col-md-3" >
+		    	<div class="btn-group" style="margin-top:60px; margin-left:10px">
+                    <% if(username){%>
+                    <button class="btn btn-secondary btn-small dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= username %>
+                    </button>
+                    
+                    <% } else {%>
+                    <button class="btn btn-secondary btn-small dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    My Account
+                    </button>
+                    <% }%>
+                    <div class="dropdown-menu" >
+                       <div> <a id="modal-936086" href="/login" role="button" class="btn">Sign in/Sign up</a >  </div>                    
+                        <div><a id="modal-936088" href="/profile" role="button" class="btn" >Profile</a ></div>
+                        <div><a id="modal-936089" href="/logout" role="button" class="btn" >Log out</a ></div>
+                    </div>
+                </div>
+		    </div>	
+	    </div>
+    </div>
+</header>

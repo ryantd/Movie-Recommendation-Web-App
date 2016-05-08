@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <% include ../partials/header %>
+
+    <div class="container">
+        <div class="container-fluid">
+            <h2>
+                <%= movieList.title %> (<%= movieList.year %>)
+            </h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="<%= movieList.json.Poster %>"  alt="<%= movieList.title %>" onerror="if (this.src != 'error.jpg') this.src = 'http://7xtdxk.com2.z0.glb.clouddn.com/notfound.png';" 
+                    width = "300" height= "450"/>
+                </div>
+          
+                <div class="col-md-4">
+                    <dl>
+                        <dt>
+                        <span ><span class='movie-text'>Director：</span>
+                        </dt>
+                        <dd>
+                        <span ><span class='movie-text-content-alt'><%= movieList.director %></span>
+                        </dd>
+                        <dt>
+                        <span ><span class='movie-text'>Actor：</span>
+                        </dt>
+                        <dd>
+                        <span ><span class='movie-text-content-alt'><%= movieList.actors %></span>
+                        </dd>
+                        <dt>
+                        <span ><span class='movie-text'>Release Year：</span>
+                        </dt>
+                        <dt>
+                        <span ><span class='movie-text-content-alt'><%= movieList.year %></span>
+                        </dt>
+                        <dt>
+                        <span ><span class='movie-text'>Genre：</span>
+                        </dt>
+                        <dt>
+                        <span ><span class='movie-text-content-alt'><%= movieList.genre %></span>
+                        </dt>
+                    </dl>
+                    
+                </div>
+                
+                <div class="col-md-4">
+                    <h3>
+                    Rating:
+                    </h3>
+                    <div id="bluecircle" data-percent="<%= movieList.json.imdbRating*10 %>" class="big">
+                    </div>
+                    
+                    <div class="c100 p<%= movieList.json.imdbRating*10 %>" style="margin-top:20px;">
+                        <span><%= movieList.json.imdbRating %></span>
+                        <div class="slice">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <% if(like.indexOf( movieList.imdbId )>-1) {  %>
+                    <button  class="btn btn-primary like btn-lg" movieId='<%= movieList.imdbId %>' style="margin-top:20px;margin-left:-10px;">
+                        <span class="glyphicon glyphicon-heart like likeColor" aria-hidden="true"></span> Like the Movie
+                    </button>
+                <% } else { %>                    
+                    <button class="btn btn-primary like btn-lg" movieId='<%= movieList.imdbId %>' style="margin-top:20px;margin-left:-10px;">
+                    <span class="glyphicon glyphicon-heart like" aria-hidden="true"></span> Like the Movie
+                    </button>
+                <% } %>      
+            </div>
+            <br>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    
+
+                    <hr/>
+                    
+                    <h2>
+                    Description
+                    </h2>
+                    <p style="font-size: 18px">
+                    <%= movieList.json.Plot %>
+                    </p>
+                    <br>
+                    <hr/>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>The Recommend Movies: </h2>
+                    <% include ../partials/gallery_rec %> 
+                </div>
+            </div>
+        </div>
+    
+    <% include ../partials/comment %>
+    <% include ../partials/scripts %>
+    </body>
+
+</html>
