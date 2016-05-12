@@ -38,7 +38,6 @@ MongoClient.connect(fullMongoUrl)
                                        username: uname,
                               encryptedPassword: hashpwd,
                                currentSessionId: sid,
-<<<<<<< HEAD
                                            like: [],
                                         profile: {  fname: "",
                                                     lname: "",
@@ -46,13 +45,6 @@ MongoClient.connect(fullMongoUrl)
                                                 birthYear: 0
                                                  }
                                                 
-=======
-                                        profile: {  name: "",
-                                                    like: "",
-                                                     uid: "",
-                                               birthYear: 0
-                                                 }
->>>>>>> yuanwu
                 }).then(function(newDoc) {
                     return exports.getUserById(newDoc.insertedId);
                 });
@@ -76,24 +68,15 @@ MongoClient.connect(fullMongoUrl)
             });
         };
 
-<<<<<<< HEAD
         exports.updateProfile = function(sid, fname, lname, email, birthYear) {
             return userCollection.update({ currentSessionId: sid }, { $set: { "profile.fname": fname,
                                                                               "profile.lname": lname,
                                                                               "profile.email":email,
                                                                               "profile.birthYear":birthYear
-=======
-        exports.updateProfile = function(sid, fname, lname,email) {
-            return userCollection.update({ currentSessionId: sid }, { $set: { profile: {       fname: fname,
-                                                                                          lname: lname,
-                                                                                          email:email
-                                                                                       }
->>>>>>> yuanwu
                                                                             } }).then(function() {
                 return exports.getUserBySessionId(sid);
             });
         };
-<<<<<<< HEAD
         
         exports.likeBySid = function(sid, imdbid) {
             return userCollection.find({ currentSessionId: sid }).limit(1).toArray().then(function(listOfUsers) {
@@ -116,8 +99,6 @@ MongoClient.connect(fullMongoUrl)
                 });
             }); 
         };
-=======
->>>>>>> yuanwu
 
         exports.updateSid = function(uname, sid) {
             if (!uname) return Promise.reject("You must provide a username");
@@ -198,11 +179,7 @@ MongoClient.connect(fullMongoUrl)
                                                         actors: fullObj.Actors,
                                                    description: shortPlot,
                                                        imgname: imgCurrentName,
-<<<<<<< HEAD
                                                        likedby: [],
-=======
-                                                       likedby: "",
->>>>>>> yuanwu
                                                           json: fullObj
                         }).then(function(newDoc) {
                             console.log("successfully inserted");
@@ -270,14 +247,11 @@ MongoClient.connect(fullMongoUrl)
             return movieCollection.find().toArray();
         }
         
-<<<<<<< HEAD
         exports.getLikeMovieByUser = function(user) {
             likeList = user.like; 
             return movieCollection.find({imdbId:{$in:likeList}}).toArray();
         }
         
-=======
->>>>>>> yuanwu
         // =================
         // Search
         // =================
@@ -292,17 +266,9 @@ MongoClient.connect(fullMongoUrl)
                                                                 if(err) {
                                                                     return console.error("error");
                                                                 }
-<<<<<<< HEAD
                                                                 if(movies.length < 1) {
                                                                     return console.log("No movies were found!");
                                                                 }
-=======
-                                                                
-                                                                if(movies.length < 1) {
-                                                                    return console.log("No movies were found!");
-                                                                }
-                                                                
->>>>>>> yuanwu
                                                                 var list = [];
                                                                 for (var movie in movies) {
                                                                     exports.createMovieByImdb(movies[movie].imdb);
@@ -310,7 +276,6 @@ MongoClient.connect(fullMongoUrl)
                                                                 }
                                                                 for (var i in list) {
                                                                     listOfMovies.push(exports.getMovieByImdb(list[i]));
-<<<<<<< HEAD
                                                                 }                                                                      
                                                           });
                                                           if (listOfMovies.length === 0) {
@@ -327,30 +292,7 @@ MongoClient.connect(fullMongoUrl)
              
         }
 
-=======
-                                                                }
-                                                                                                                                 
-                                                          });
-                                                          
-                                                          if (listOfMovies.length === 0) {
-                                                              console.log(listOfMovies.length);
-                                                              return Promise.reject("No movies were found!");
-                                                          } else {
-                                                              console.log("else");
-                                                              return listOfMovies.sort(compare);
-                                                          }
-                                                          
-                                                          
-                                                      } else {
-                                                          return listOfMovies.sort(compare);
-                                                      }
-                                                      
-                                                   
-                                                  });
-                                                  
-            
-        }
->>>>>>> yuanwu
+
         
         // sort by imdbRating
         function compare(a,b) {
