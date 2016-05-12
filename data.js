@@ -331,8 +331,6 @@ MongoClient.connect(fullMongoUrl)
         
         
         
-<<<<<<< HEAD
+
     });
-=======
-    });
->>>>>>> yuanwu
+
