@@ -1,6 +1,10 @@
 {
   "name": "cs-546-group4-final",
+<<<<<<< HEAD
   "version": "2.0.0",
+=======
+  "version": "1.0.0",
+>>>>>>> yuanwu
   "description": "This is a final project from Stevens CS546, to make a movie recommendation web app.",
   "main": "server.js",
   "scripts": {
