@@ -11,7 +11,11 @@
     <div class="container">
         <div class="container-fluid">
             <h2>
+<<<<<<< HEAD
                 <%= movieList.title %> (<%= movieList.year %>)
+=======
+                <%= movieList.title %>(<%= movieList.year %>)
+>>>>>>> yuanwu
             </h2>
             <div class="row">
                 <div class="col-md-4">
@@ -25,13 +29,21 @@
                         <span ><span class='movie-text'>Director：</span>
                         </dt>
                         <dd>
+<<<<<<< HEAD
                         <span ><span class='movie-text-content-alt'><%= movieList.director %></span>
+=======
+                        <span ><span class='movie-text-content'><%= movieList.director %></span>
+>>>>>>> yuanwu
                         </dd>
                         <dt>
                         <span ><span class='movie-text'>Actor：</span>
                         </dt>
                         <dd>
+<<<<<<< HEAD
                         <span ><span class='movie-text-content-alt'><%= movieList.actors %></span>
+=======
+                        <span ><span class='movie-text-content'><%= movieList.actors %></span>
+>>>>>>> yuanwu
                         </dd>
                         <dt>
                         <span ><span class='movie-text'>Release Year：</span>
@@ -53,6 +65,7 @@
                     <h3>
                     Rating:
                     </h3>
+<<<<<<< HEAD
                     <div id="bluecircle" data-percent="<%= movieList.json.imdbRating*10 %>" class="big">
                     </div>
                     
@@ -74,6 +87,13 @@
                     <span class="glyphicon glyphicon-heart like" aria-hidden="true"></span> Like the Movie
                     </button>
                 <% } %>      
+=======
+                    <h4 style="text-align: center;">
+                    <span ><span class='strong-red-text'><%= movieList.json.imdbRating %></span>
+                    </h4>
+                    
+                </div>
+>>>>>>> yuanwu
             </div>
             <br>
         </div>
@@ -81,6 +101,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
+<<<<<<< HEAD
                     
 
                     <hr/>
@@ -93,6 +114,38 @@
                     </p>
                     <br>
                     <hr/>
+=======
+                    <button type="button" class="btn btn-success btn-lg like" movieId='<%= movieList.imdbId %>'>
+                      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
+                    </button>
+                    <h2>
+                    Synopsis
+                    </h2>
+                    <p>
+                    <%= movieList.json.Plot %>
+                    </p>
+                    <p>
+                    <a class="btn" href="#">View details »</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>The People Who Like This Movie Also Like: </h2>
+                    <% include ../partials/gallery %> 
+                    <div id="blueimp-gallery" class="blueimp-gallery">
+                        <div class="slides"></div>
+                        <h3 class="title"></h3>
+                        <a class="prev">‹</a>
+                        <a class="next">›</a>
+                        <a class="close">×</a>
+                        <a class="play-pause"></a>
+                        <ol class="indicator"></ol>
+                    </div>
+>>>>>>> yuanwu
                 </div>
             </div>
         </div>
@@ -101,12 +154,27 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>The Recommend Movies: </h2>
+<<<<<<< HEAD
                     <% include ../partials/gallery_rec %> 
                 </div>
             </div>
         </div>
     
     <% include ../partials/comment %>
+=======
+                    <ul>
+                        <% recMovies.forEach(function(movieObject){ %>
+                        <a href="/movie/<%= movieObject.imdbId %>">
+                        <li>Title: <%= movieObject.title %></li><br>
+                        </a>
+                        <% }); %>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+
+    <% include ../partials/footer %>
+>>>>>>> yuanwu
     <% include ../partials/scripts %>
     </body>
 
