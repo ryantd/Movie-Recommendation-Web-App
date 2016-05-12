@@ -1,28 +1,4 @@
-<<<<<<< HEAD
-=======
-.links-like {
-    margin: 0 auto;
-    max-width: 2000px;
-}
 
-.crop-like{
-  width: 75px;
-  height: 75px;
-  overflow: hidden;
-  border-radius: 50%;
-  float:left;
-  margin-right: 20px;
-}
-
-.crop-like > img{
-  width: 75px;
-
-}
-
-.gallery-like {
-    padding-top: 30px;
-}
->>>>>>> yuanwu
 header.black {
     background-color: black;
 }
@@ -86,11 +62,8 @@ header.back-im {
 }
 
 .gallery {
-<<<<<<< HEAD
     padding-top: 30px;
-=======
-    padding-top: 100px;
->>>>>>> yuanwu
+
 }
 
 /* movie ejs style */
@@ -119,7 +92,6 @@ header.back-im {
      text-align: center;
      /*top: 20; left: 0; bottom: 20; right: 50;*/
 }
-<<<<<<< HEAD
 
 
 /* profile ejs style */
@@ -149,8 +121,6 @@ header.back-im {
 
 /*home page*/
 
-=======
->>>>>>> yuanwu
 /* filter css */
 .filter-btn {
     border-style : none;
@@ -161,30 +131,22 @@ header.back-im {
 }
 
 .filter-entry > a > img {
-<<<<<<< HEAD
+
     margin: auto;
-=======
->>>>>>> yuanwu
+
     height: 250px;
 }
 
 .filter {
-<<<<<<< HEAD
-=======
-    margin: auto;
-    width: 80%;
->>>>>>> yuanwu
+
     margin-top: 50px;
 }
 
 /* home slide */
 .carousel{
   position:relative;
-<<<<<<< HEAD
+
   margin-top: 15px;
-=======
-  margin-top: 100px;
->>>>>>> yuanwu
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
@@ -197,7 +159,7 @@ header.back-im {
   color: black;
     width: 80%;
     position: right;
-<<<<<<< HEAD
+
     margin: 40px auto 0 auto;
     font-family: 'Bree Serif';
     padding: 10px;
@@ -206,31 +168,21 @@ header.back-im {
 .rw-words{
     display: inline-block;
     font-size: 30px;
-=======
-    margin: 110px auto 0 auto;
-    font-family: 'Bree Serif';
-    padding: 10px;
-    font-size: 36px;
-}
-.rw-words{
-    display: inline-block;
->>>>>>> yuanwu
+
 }
 .rw-words-1 span{
 	max-width: 0;
 	display: inline-block;
     opacity: 0;
     overflow: hidden;
-<<<<<<< HEAD
+
     color: #b30427;
-=======
-    color: #6b969d;
->>>>>>> yuanwu
+
     animation: rotateWord 18s linear infinite 0s;
 }
 .rw-words-1 span:nth-child(2) {
     animation-delay: 3s;
-<<<<<<< HEAD
+
     color: #b30427;
 }
 .rw-words-1 span:nth-child(3) {
@@ -248,25 +200,7 @@ header.back-im {
 .rw-words-1 span:nth-child(6) {
     animation-delay: 15s;
     color: #b30427;
-=======
-    color: #6b969d;
-}
-.rw-words-1 span:nth-child(3) {
-    animation-delay: 6s;
-    color: #6b969d;
-}
-.rw-words-1 span:nth-child(4) {
-    animation-delay: 9s;
-    color: #6b969d;
-}
-.rw-words-1 span:nth-child(5) {
-    animation-delay: 12s;
-    color: #6b969d;
-}
-.rw-words-1 span:nth-child(6) {
-    animation-delay: 15s;
-    color: #6b969d;
->>>>>>> yuanwu
+
 }
 @keyframes rotateWord {
     2% { opacity: 0; max-width: 0; transform: translateY(-30px); }
@@ -282,7 +216,7 @@ header.back-im {
     .rw-sentence { font-size: 9px; }
 }
 
-<<<<<<< HEAD
+
 /* user like */
 .likeColor{
     color: red;
@@ -360,5 +294,4 @@ header.back-im {
 }
 
 
-=======
->>>>>>> yuanwu
+
