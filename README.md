@@ -1,5 +1,7 @@
 # Movie Recommendation Web App
 
+This site focuses on the information of movies, and helps people to find a movie by different key words and recommend some similar movies to users.
+
 ##layer
 ```
 ├─┬ index
@@ -81,6 +83,7 @@ firstly, when you type `node server.js`, please go to _http://localhost:3000/sta
 
 ##movie collection
 
+```
 _id
 
 imdbId
@@ -102,9 +105,11 @@ imgname
 likedby
 
 json
+```
 
 ##user collection
 
+```
 _id
 
 username
@@ -122,7 +127,7 @@ profile: {  name
             birthYear
             
 }
-                                                 }
+```
 
 ##file clarifying
 
@@ -135,6 +140,3 @@ user.js -- user sys part
 resources/poster -- save the poster image
 
 resources/data -- input files (scraping from imdb)
-
-##issues
-
